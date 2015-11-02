@@ -1,0 +1,70 @@
+providers: [
+  {
+    key: "bt"
+    config:
+      commands: [
+        {
+          project: "/cryptfs/development/algorithms"
+          source: "/cryptfs/development/algorithms/.build-tools.cson"
+          name: "make"
+          command: "make -j8"
+          wd: "."
+          env: {}
+          modifier:
+            shell:
+              command: "bash -c"
+            save_all: {}
+          stdout:
+            highlighting: "ht"
+          stderr:
+            highlighting: "ht"
+          output:
+            console:
+              close_success: true
+              queue_in_buffer: false
+            linter:
+              no_trace: false
+          version: 1
+        }
+        {
+          project: "/cryptfs/development/algorithms"
+          source: "/cryptfs/development/algorithms/.build-tools.cson"
+          name: "clean"
+          command: "make clean"
+          wd: "."
+          env: {}
+          modifier: {}
+          stdout:
+            highlighting: "ht"
+          stderr:
+            highlighting: "ht"
+          output:
+            console:
+              close_success: true
+              queue_in_buffer: false
+          version: 1
+        }
+        {
+          project: "/cryptfs/development/algorithms"
+          source: "/cryptfs/development/algorithms/.build-tools.cson"
+          name: "rebuild"
+          command: "make clean && make -j8"
+          wd: "."
+          env: {}
+          modifier:
+            shell:
+              command: "bash -c"
+            save_all: {}
+          stdout:
+            highlighting: "ht"
+          stderr:
+            highlighting: "ht"
+          output:
+            console:
+              close_success: true
+              queue_in_buffer: false
+          version: 1
+        }
+      ]
+  }
+]
