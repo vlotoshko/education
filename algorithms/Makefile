@@ -19,4 +19,4 @@ $(ODIR)/%.o: %.cpp
 
 .PHONY: clean
 clean:
-	rm -rf *.o $(ODIR)/*.o algorithms
+	rm -rf *.o $(ODIR)/*.o $(TARGET)
