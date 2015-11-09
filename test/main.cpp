@@ -43,7 +43,8 @@ int main(int argc, char const *argv[]) {
 
   std::cout << "d == v1: " << std::boolalpha << (d == v1) << std::endl;
   std::cout << "d == v2: " << std::boolalpha << (d == v2) << std::endl;
-
+  std::cout << "d == static_cast<Base2 *>(v2): " << std::boolalpha <<
+    (d == static_cast<Base2 *>(v2)) << std::endl;
 
   return 0;
 }
