@@ -1,8 +1,13 @@
 #include <iostream>
+#include <typeinfo>
+#include <typeindex>
+#include <memory>
+
 
 class Base1 {
 public:
   int a;
+  int b;
 };
 
 class Base2 {
@@ -45,6 +50,24 @@ int main(int argc, char const *argv[]) {
   std::cout << "d == v2: " << std::boolalpha << (d == v2) << std::endl;
   std::cout << "d == static_cast<Base2 *>(v2): " << std::boolalpha <<
     (d == static_cast<Base2 *>(v2)) << std::endl;
+
+  Base1 b;
+  std::cout << "typeid: " << typeid(d).name() << std::endl;
+  std::cout << "typeid: " << typeid(b).name() << std::endl;
+  std::cout << "typeid: " << typeid(b1).name() << std::endl;
+  std::cout << "typeid: " << typeid(*b2).name() << std::endl;
+
+  int f;
+  std::cout << "typeid: " << typeid(f).name() << std::endl;
+  std::cout << "typeid: " << typeid(0).name() << std::endl;
+
+  std::allocator<int> a1;
+  // std::allocator_traits<std::allocator<int>>::allocator_type;
+  std::allocator_traits<std::allocator<int>>::allocator_type a2;
+  std::allocator_traits<std::allocator<int>>::value_type k;
+  std::allocator_traits<decltype(a1)>::value_type k1;
+  std::cout << "typeid: " << typeid(std::allocator_traits<std::allocator<int>>::allocator_type).name() << std::endl;
+  std::cout << "typeid: " << typeid(k1).name() << std::endl;
 
   return 0;
 }

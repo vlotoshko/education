@@ -6,6 +6,28 @@ providers: [
         {
           project: "/home/arete/GitHub/education/test"
           source: "/home/arete/GitHub/education/test/.build-tools.cson"
+          name: "rebuild and run"
+          command: "make clean && make -j8 && ./test"
+          wd: "."
+          env: {}
+          modifier:
+            shell:
+              command: "bash -c"
+            save_all: {}
+          stdout:
+            highlighting: "ht"
+          stderr:
+            highlighting: "ht"
+          output:
+            console:
+              close_success: false
+              queue_in_buffer: false
+              stdin: false
+          version: 1
+        }
+        {
+          project: "/home/arete/GitHub/education/test"
+          source: "/home/arete/GitHub/education/test/.build-tools.cson"
           name: "make"
           command: "make -j8"
           wd: "."
@@ -34,27 +56,6 @@ providers: [
           wd: "."
           env: {}
           modifier: {}
-          stdout:
-            highlighting: "ht"
-          stderr:
-            highlighting: "ht"
-          output:
-            console:
-              close_success: true
-              queue_in_buffer: false
-          version: 1
-        }
-        {
-          project: "/home/arete/GitHub/education/test"
-          source: "/home/arete/GitHub/education/test/.build-tools.cson"
-          name: "rebuild"
-          command: "make clean && make -j8"
-          wd: "."
-          env: {}
-          modifier:
-            shell:
-              command: "bash -c"
-            save_all: {}
           stdout:
             highlighting: "ht"
           stderr:
